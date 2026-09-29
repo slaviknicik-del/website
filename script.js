@@ -1,0 +1,1 @@
+console.log("CAR POINT загружен");
