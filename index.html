@@ -3,32 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>CAR POINT</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- ШАПКА САЙТА: три блока (логотип, поиск, контакты) -->
     <header class="header">
 
-        <div class="logo">
-
-            <!-- Эмблема -->
-            <div class="logo-icon">
-                CP
-            </div>
-
-            <!-- Название -->
+        <!-- 1. Логотип -->
+        <a href="/" class="logo">
+            <div class="logo-icon"><span>CP</span></div>
             <div class="logo-text">
                 <span class="car">CAR</span>
                 <span class="point">POINT</span>
+            </div>
+        </a>
+
+        <!-- 2. Поиск -->
+        <form class="search" role="search">
+            <input type="search" class="search-input" placeholder="Поиск автомобилей..." aria-label="Поиск">
+            <button type="submit" class="search-btn" aria-label="Найти">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+                </svg>
+            </button>
+        </form>
+
+        <!-- 3. Контакты -->
+        <div class="contacts">
+
+            <div class="messengers">
+                <span class="messengers-text">Связаться с нами<br>через мессенджеры:</span>
+
+                <div class="messengers-icons">
+                    <a href="https://wa.me/+37325078282" class="messenger-link whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21l1.65-4.8A9 9 0 1 1 8 19.4L3 21z"></path>
+                            <path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2L9 8.5z"></path>
+                        </svg>
+                    </a>
+
+                    <a href="https://t.me/+37325078282" class="messenger-link telegram" target="_blank" rel="noopener" aria-label="Telegram">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M21.5 3.5 2.8 10.7c-.9.4-.9 1.1-.2 1.3l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.5-1.5z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="phone-block">
+                <a href="tel:+37325078282" class="phone">+37325078282</a>
+                <span class="work-time">Ежедневно, без выходных 09:00-21:00</span>
             </div>
 
         </div>
 
     </header>
+
+
+    <!-- БЛОК «АВТОСЕРВИС» -->
+    <section class="services">
+
+        <!-- Заголовок и кнопка -->
+        <div class="services-head">
+            <div>
+                <h2 class="services-title">Автосервис</h2>
+                <p class="services-subtitle">Предоставляем полный спектр услуг по ремонту автомобилей</p>
+            </div>
+            <a href="#" class="services-btn">Узнать подробнее</a>
+        </div>
+
+        <!-- Сетка карточек -->
+        <div class="services-grid">
+
+            <!-- Большая красная карточка -->
+            <div class="service-big">
+                <h3>Все автоуслуги<br>в одном месте</h3>
+                <p>С качеством, за которое мы отвечаем!</p>
+                <img src="images/services-big.png" >
+            </div>
+
+            <!-- Маленькие карточки -->
+            <a href="#" class="service-card">
+                Кузовной ремонт
+                <img src="images/kuzov.png" alt="Кузовной ремонт">
+            </a>
+
+            <a href="#" class="service-card">
+                Электроника
+                <img src="images/electronics.png" alt="Электроника">
+            </a>
+
+            <a href="#" class="service-card">
+                Ходовая часть
+                <img src="images/hodovaya.png" alt="Ходовая часть">
+            </a>
+
+            <a href="#" class="service-card">
+                Выхлопная система
+                <img src="images/exhaust.png" alt="Выхлопная система">
+            </a>
+
+            <a href="#" class="service-card">
+                Двигатель
+                <img src="images/engine.png" alt="Двигатель">
+            </a>
+
+            <a href="#" class="service-card">
+                Кондиционер
+                <img src="images/conditioner.png" alt="Кондиционер">
+            </a>
+
+            <a href="#" class="service-card">
+                Изоляция и комфорт
+                <img src="images/isolation.png" alt="Изоляция и комфорт">
+            </a>
+
+            <a href="#" class="service-card">
+                Другие услуги
+                <img src="images/other.png" alt="Другие услуги">
+            </a>
+
+        </div>
+    </section>
+
+   
 
     <script src="script.js"></script>
 

@@ -1,3 +1,4 @@
+/* Убираем стандартные отступы браузера у всех элементов */
 * {
     margin: 0;
     padding: 0;
@@ -11,21 +12,27 @@ body {
 
 
 /* =========================
-   ШАПКА
+   ШАПКА (прикреплённая)
 ========================= */
 
 .header {
+    position: sticky;   /* шапка прилипает при прокрутке */
+    top: 0;
+    z-index: 100;       /* шапка всегда поверх контента */
+
     width: 100%;
-    height: 165px;
+    height: 90px;
 
     background: #ffffff;
-
     border-bottom: 1px solid #dddddd;
 
-    display: flex;
+    /* Три колонки: логотип | поиск | контакты */
+    display: grid;
+    grid-template-columns: 1fr minmax(280px, 560px) 1fr;
     align-items: center;
+    gap: 20px;
 
-    padding-left: 60px;
+    padding: 0 60px;
 }
 
 
@@ -36,14 +43,13 @@ body {
 .logo {
     display: flex;
     align-items: center;
-
     gap: 12px;
 
+    width: fit-content;
+
+    text-decoration: none;
     cursor: pointer;
 }
-
-
-/* Эмблема */
 
 .logo-icon {
     width: 58px;
@@ -54,75 +60,57 @@ body {
     justify-content: center;
 
     background: #e3292e;
-
     color: white;
 
     font-size: 20px;
     font-weight: 900;
-
     font-style: italic;
 
     transform: skew(-8deg);
-
     border-radius: 4px;
-
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 
     position: relative;
+    transition: transform 0.2s ease;
 }
 
+/* Буквы наклоняем обратно, чтобы не были перекошены */
+.logo-icon span {
+    display: block;
+    transform: skew(8deg);
+}
 
-/* Маленькая декоративная линия */
-
+/* Белая линия внизу эмблемы */
 .logo-icon::after {
     content: "";
-
     position: absolute;
-
     bottom: 7px;
     left: 10px;
-
     width: 38px;
     height: 3px;
 
     background: white;
-
     opacity: 0.8;
 }
 
-
-/* Название */
-
 .logo-text {
     display: flex;
-
     align-items: baseline;
-
     gap: 7px;
 
     font-size: 38px;
-
     font-weight: 900;
-
-    letter-spacing: -2px;
+    letter-spacing: -1px;
 }
-
-
-/* CAR */
 
 .car {
     color: #101820;
 }
 
-
-/* POINT */
-
 .point {
     color: #e3292e;
+    transition: color 0.2s ease;
 }
-
-
-/* Эффект при наведении */
 
 .logo:hover .logo-icon {
     transform: skew(-8deg) scale(1.05);
@@ -134,23 +122,361 @@ body {
 
 
 /* =========================
-   ТЕЛЕФОН
+   ПОИСК
 ========================= */
 
+.search {
+    grid-column: 2;
+
+    display: flex;
+    align-items: center;
+
+    height: 46px;
+
+    border: 2px solid #e3e3e3;
+    border-radius: 8px;
+    overflow: hidden;
+
+    background: #f7f7f7;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+/* При клике в поле рамка становится красной */
+.search:focus-within {
+    border-color: #e3292e;
+    background: #ffffff;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    padding: 0 16px;
+    font-size: 16px;
+}
+
+.search-btn {
+    width: 52px;
+    height: 100%;
+
+    border: none;
+    background: #e3292e;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.search-btn:hover {
+    background: #b91e23;
+}
+
+
+/* =========================
+   КОНТАКТЫ (справа)
+========================= */
+
+.contacts {
+    grid-column: 3;
+    justify-self: end;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.messengers {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    background: #f3f3f3;
+    border-radius: 10px;
+    padding: 10px 16px;
+}
+
+.messengers-text {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #101820;
+}
+
+.messengers-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.messenger-link {
+    display: flex;
+    color: #101820;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.messenger-link:hover {
+    transform: scale(1.1);
+}
+
+.messenger-link.whatsapp:hover {
+    color: #25d366;
+}
+
+.messenger-link.telegram:hover {
+    color: #229ed9;
+}
+
+.phone-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+}
+
+.phone {
+    font-size: 26px;
+    font-weight: 800;
+    color: #101820;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.phone:hover {
+    color: #e3292e;
+}
+
+.work-time {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 12px;
+    color: #666666;
+    white-space: nowrap;
+}
+
+/* Зелёная точка перед временем работы */
+.work-time::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2ecc40;
+}
+
+
+/* =========================
+   БЛОК «АВТОСЕРВИС»
+========================= */
+
+.services {
+    max-width: 1400px;
+    margin: 40px auto;   /* по центру страницы */
+    padding: 0 60px;
+}
+
+/* Заголовок слева, кнопка справа */
+.services-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.services-title {
+    font-size: 32px;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+.services-subtitle {
+    font-size: 16px;
+    color: #101820;
+}
+
+.services-btn {
+    background: #f0f1f3;
+    color: #333333;
+    font-weight: 700;
+    text-decoration: none;
+
+    padding: 14px 20px;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+}
+
+.services-btn:hover {
+    background: #e3e4e7;
+}
+
+/* Сетка: 1 большая колонка + 4 маленьких */
+.services-grid {
+    display: grid;
+    grid-template-columns: 2.1fr repeat(4, 1fr);
+    grid-auto-rows: 204px;   /* высота одной строки */
+    gap: 20px;
+}
+
+/* Маленькая карточка */
+.service-card {
+    position: relative;   /* чтобы картинку прижать вниз */
+    overflow: hidden;     /* обрезаем всё, что вылезает */
+
+    background: #f0f1f3;
+    border-radius: 20px;
+    padding: 20px;
+
+    color: #333333;
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: transform 0.2s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+}
+
+.service-card img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 65%;
+    object-fit: contain;   /* картинка не растягивается */
+    object-position: center bottom;
+}
+
+/* Большая красная карточка */
+.service-big {
+    grid-row: span 2;   /* занимает две строки */
+
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(135deg, #d7191f, #ec4c51);
+    color: white;
+    border-radius: 20px;
+    padding: 32px;
+}
+
+.service-big h3 {
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.service-big p {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.service-big img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 58%;
+    object-fit: contain;
+    object-position: center bottom;
+}
+
+
+/* =========================
+   АДАПТИВ
+   (порядок важен: от большего экрана к меньшему)
+========================= */
+
+/* Средние экраны */
+@media (max-width: 1400px) {
+
+    .header {
+        padding: 0 30px;
+    }
+
+    .messengers {
+        display: none;   /* прячем плашку мессенджеров */
+    }
+
+    .services {
+        padding: 0 30px;
+    }
+}
+
+/* Планшеты */
+@media (max-width: 1000px) {
+
+    .header {
+        grid-template-columns: auto 1fr;
+    }
+
+    .contacts {
+        display: none;   /* остаются логотип и поиск */
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-big {
+        grid-column: 1 / -1;   /* на всю ширину */
+        grid-row: auto;
+        height: 340px;
+    }
+}
+
+/* Телефоны */
 @media (max-width: 600px) {
 
     .header {
-        padding-left: 20px;
+        height: 70px;
+        padding: 0 16px;
+        gap: 12px;
     }
 
     .logo-text {
-        font-size: 30px;
+        display: none;   /* остаётся только эмблема */
     }
 
     .logo-icon {
-        width: 48px;
-        height: 48px;
-
+        width: 44px;
+        height: 44px;
         font-size: 16px;
+    }
+
+    .logo-icon::after {
+        left: 7px;
+        width: 30px;
+        bottom: 5px;
+    }
+
+    .search {
+        height: 40px;
+    }
+
+    .services {
+        padding: 0 16px;
+    }
+
+    .services-head {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .service-big h3 {
+        font-size: 28px;
     }
 }
