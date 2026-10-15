@@ -1,57 +1,109 @@
-/* Убираем стандартные отступы браузера у всех элементов */
+/* ========================
+
+=============================
+   CAR POINT — style.css (общий для всех страниц)
+   1. Основа   2. Шапка   3. Главная   4. Каталог
+   5. Внутренние страницы   6. Адаптив
+   ===================================================== */
+
+
+/* ===================== 1. ОСНО       ===================== */
+
+:root {
+    --red:      #e3292e;
+    --red-dark: #b91e23;
+    --dark:     #101820;
+    --text:     #333333;
+    --muted:    #777777;
+    --line:     #e0e2e6;
+    --soft:     #f3f4f6;
+    --radius:   12px;
+}
+
 * {
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
     font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark);
     background: #ffffff;
 }
 
+a      { text-decoration: none; }
+button { font-family: inherit; }
 
-/* =========================
-   ШАПКА (прикреплённая)
-========================= */
-
-.header {
-    position: sticky;   /* шапка прилипает при прокрутке */
-    top: 0;
-    z-index: 100;       /* шапка всегда поверх контента */
-
-    width: 100%;
-    height: 90px;
-
-    background: #ffffff;
-    border-bottom: 1px solid #dddddd;
-
-    /* Три колонки: логотип | поиск | контакты */
-    display: grid;
-    grid-template-columns: 1fr minmax(280px, 560px) 1fr;
-    align-items: center;
-    gap: 20px;
-
+/* контейнер страницы */
+.wrap {
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 0 60px;
 }
 
+.section { margin-top: 60px; }
 
-/* =========================
-   ЛОГОТИП
-========================= */
+body > main { padding-bottom: 50px; }
 
+.section-head { margin-bottom: 24px; }
+
+.section-head h2 {
+    margin-bottom: 8px;
+    font-size: 32px;
+    color: var(--text);
+}
+
+.section-head p { font-size: 16px; }
+
+/* кнопки */
+.btn {
+    display: inline-block;
+    padding: 11px 22px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 10px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-red   { color: #ffffff; background: var(--red); }
+.btn-red:hover { background: var(--red-dark); }
+
+.btn-ghost { color: #ffffff; border: 2px solid rgba(255, 255, 255, 0.35); }
+.btn-ghost:hover { border-color: #ffffff; }
+
+
+/* ===================== 2. ШАПКА ===================== */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    height: 90px;
+    padding: 0 60px;
+
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    background: #ffffff;
+    border-bottom: 1px solid #dddddd;
+}
+
+/* логотип */
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
-
-    width: fit-content;
-
-    text-decoration: none;
-    cursor: pointer;
+    flex-shrink: 0;
 }
 
 .logo-icon {
+    position: relative;
     width: 58px;
     height: 58px;
 
@@ -59,28 +111,20 @@ body {
     align-items: center;
     justify-content: center;
 
-    background: #e3292e;
-    color: white;
-
     font-size: 20px;
     font-weight: 900;
     font-style: italic;
+    color: #ffffff;
 
-    transform: skew(-8deg);
+    background: var(--red);
     border-radius: 4px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-
-    position: relative;
-    transition: transform 0.2s ease;
+    transform: skew(-8deg);
+    transition: transform 0.2s;
 }
 
-/* Буквы наклоняем обратно, чтобы не были перекошены */
-.logo-icon span {
-    display: block;
-    transform: skew(8deg);
-}
+.logo-icon span { display: block; transform: skew(8deg); }
 
-/* Белая линия внизу эмблемы */
 .logo-icon::after {
     content: "";
     position: absolute;
@@ -88,8 +132,7 @@ body {
     left: 10px;
     width: 38px;
     height: 3px;
-
-    background: white;
+    background: #ffffff;
     opacity: 0.8;
 }
 
@@ -97,386 +140,789 @@ body {
     display: flex;
     align-items: baseline;
     gap: 7px;
-
-    font-size: 38px;
+    font-size: 34px;
     font-weight: 900;
     letter-spacing: -1px;
 }
 
-.car {
-    color: #101820;
+.car   { color: var(--dark); }
+.point { color: var(--red); transition: color 0.2s; }
+
+.logo:hover .logo-icon { transform: skew(-8deg) scale(1.05); }
+.logo:hover .point     { color: var(--red-dark); }
+
+/* меню */
+.nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 26px;
 }
 
-.point {
-    color: #e3292e;
-    transition: color 0.2s ease;
+.nav a {
+    position: relative;
+    padding: 6px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark);
+    white-space: nowrap;
+    transition: color 0.2s;
 }
 
-.logo:hover .logo-icon {
-    transform: skew(-8deg) scale(1.05);
+.nav a:hover,
+.nav a.active { color: var(--red); }
+
+.nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    background: var(--red);
 }
 
-.logo:hover .point {
-    color: #b91e23;
-}
-
-
-/* =========================
-   ПОИСК
-========================= */
-
+/* поиск */
 .search {
-    grid-column: 2;
+    width: 260px;
+    height: 40px;
+    flex-shrink: 0;
 
     display: flex;
     align-items: center;
-
-    height: 46px;
-
-    border: 2px solid #e3e3e3;
-    border-radius: 8px;
     overflow: hidden;
 
     background: #f7f7f7;
-    transition: border-color 0.2s ease, background 0.2s ease;
+    border: 1px solid #e3e3e3;
+    border-radius: 6px;
+    transition: border-color 0.2s, background 0.2s;
 }
 
-/* При клике в поле рамка становится красной */
-.search:focus-within {
-    border-color: #e3292e;
-    background: #ffffff;
-}
+.search:focus-within { background: #ffffff; border-color: var(--red); }
 
 .search-input {
     flex: 1;
     min-width: 0;
     height: 100%;
-
+    padding: 0 12px;
+    font-size: 13px;
     border: none;
     outline: none;
     background: transparent;
-
-    padding: 0 16px;
-    font-size: 16px;
 }
 
 .search-btn {
-    width: 52px;
+    width: 44px;
     height: 100%;
-
-    border: none;
-    background: #e3292e;
-    color: white;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
+    color: #ffffff;
+    background: var(--red);
+    border: none;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.2s;
 }
 
-.search-btn:hover {
-    background: #b91e23;
-}
+.search-btn:hover { background: var(--red-dark); }
 
-
-/* =========================
-   КОНТАКТЫ (справа)
-========================= */
-
+/* контакты */
 .contacts {
-    grid-column: 3;
-    justify-self: end;
-
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
+    flex-shrink: 0;
 }
 
-.messengers {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-
-    background: #f3f3f3;
-    border-radius: 10px;
-    padding: 10px 16px;
-}
-
-.messengers-text {
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.25;
-    color: #101820;
-}
-
-.messengers-icons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.messenger-link {
-    display: flex;
-    color: #101820;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.messenger-link:hover {
-    transform: scale(1.1);
-}
-
-.messenger-link.whatsapp:hover {
-    color: #25d366;
-}
-
-.messenger-link.telegram:hover {
-    color: #229ed9;
-}
-
-.phone-block {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 3px;
-}
+.phone-block { display: flex; flex-direction: column; gap: 3px; }
 
 .phone {
-    font-size: 26px;
+    font-size: 17px;
     font-weight: 800;
-    color: #101820;
-    text-decoration: none;
+    color: var(--dark);
     white-space: nowrap;
-    transition: color 0.2s ease;
+    transition: color 0.2s;
 }
 
-.phone:hover {
-    color: #e3292e;
-}
+.phone:hover { color: var(--red); }
 
 .work-time {
+    max-width: 150px;
+    font-size: 10px;
+    line-height: 1.3;
+    color: #666666;
+}
+
+.messengers-icons { display: flex; gap: 8px; }
+
+.messenger-link {
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
-    gap: 6px;
-
-    font-size: 12px;
-    color: #666666;
-    white-space: nowrap;
-}
-
-/* Зелёная точка перед временем работы */
-.work-time::before {
-    content: "";
-    width: 7px;
-    height: 7px;
+    justify-content: center;
+    color: #ffffff;
     border-radius: 50%;
-    background: #2ecc40;
+    transition: transform 0.2s;
 }
 
+.messenger-link:hover { transform: scale(1.1); }
 
-/* =========================
-   БЛОК «АВТОСЕРВИС»
-========================= */
+.whatsapp { background: #25d366; }
+.telegram { background: #229ed9; }
 
-.services {
-    max-width: 1400px;
-    margin: 40px auto;   /* по центру страницы */
-    padding: 0 60px;
-}
 
-/* Заголовок слева, кнопка справа */
-.services-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 24px;
-}
+/* ===================== 3. ГЛАВНАЯ ===================== */
 
-.services-title {
-    font-size: 32px;
-    color: #333333;
-    margin-bottom: 8px;
-}
-
-.services-subtitle {
-    font-size: 16px;
-    color: #101820;
-}
-
-.services-btn {
-    background: #f0f1f3;
-    color: #333333;
-    font-weight: 700;
-    text-decoration: none;
-
-    padding: 14px 20px;
-    border-radius: 12px;
-    transition: background 0.2s ease;
-}
-
-.services-btn:hover {
-    background: #e3e4e7;
-}
-
-/* Сетка: 1 большая колонка + 4 маленьких */
-.services-grid {
-    display: grid;
-    grid-template-columns: 2.1fr repeat(4, 1fr);
-    grid-auto-rows: 204px;   /* высота одной строки */
-    gap: 20px;
-}
-
-/* Маленькая карточка */
-.service-card {
-    position: relative;   /* чтобы картинку прижать вниз */
-    overflow: hidden;     /* обрезаем всё, что вылезает */
-
-    background: #f0f1f3;
-    border-radius: 20px;
-    padding: 20px;
-
-    color: #333333;
-    font-size: 17px;
-    font-weight: 700;
-    text-decoration: none;
-
-    transition: transform 0.2s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-4px);
-}
-
-.service-card img {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 65%;
-    object-fit: contain;   /* картинка не растягивается */
-    object-position: center bottom;
-}
-
-/* Большая красная карточка */
-.service-big {
-    grid-row: span 2;   /* занимает две строки */
-
+/* главный экран */
+.hero {
     position: relative;
     overflow: hidden;
 
-    background: linear-gradient(135deg, #d7191f, #ec4c51);
-    color: white;
-    border-radius: 20px;
-    padding: 32px;
+    min-height: 220px;
+    margin-top: 20px;
+    padding: 28px 60px 28px 100px;
+
+    display: flex;
+    align-items: center;
+
+    color: #ffffff;
+    background: linear-gradient(100deg, #1a1d22 0%, #101820 60%, #0b0f14 100%);
+    border-radius: var(--radius);
 }
 
-.service-big h3 {
-    font-size: 36px;
-    line-height: 1.2;
-    margin-bottom: 16px;
+.hero::before {                          /* красная косая полоса */
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 70px;
+    background: var(--red);
+    clip-path: polygon(0 0, 100% 0, 40% 100%, 0 100%);
 }
 
-.service-big p {
-    font-size: 16px;
+.hero::after {                           /* красное свечение */
+    content: "";
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 55%;
+    background: radial-gradient(ellipse at 60% 75%, rgba(227, 41, 46, 0.4), transparent 65%);
+    pointer-events: none;
+}
+
+.hero-text { position: relative; z-index: 2; max-width: 640px; }
+
+.hero-tag {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 5px 11px;
+    font-size: 11px;
     font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #ff7a7e;
+    background: rgba(227, 41, 46, 0.2);
+    border-radius: 20px;
 }
 
+.hero h1 { margin-bottom: 10px; font-size: 28px; line-height: 1.2; }
+
+.hero p {
+    margin-bottom: 18px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #d5d8dc;
+}
+
+.hero-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.hero-car {                              /* машина выезжает справа */
+    position: absolute;
+    z-index: 1;
+    right: -130px;
+    bottom: -22px;
+    height: 100%;
+    width: auto;
+}
+
+/* цифры */
+.stats {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.stat {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: var(--soft);
+    border-radius: 14px;
+}
+
+.stat b    { font-size: 28px; color: var(--red); }
+.stat span { font-size: 13px; color: #555555; }
+
+/* два направления */
+.dir-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.dir-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 260px;
+    padding: 36px;
+    display: flex;
+    align-items: flex-start;
+    color: #ffffff;
+    border-radius: 16px;
+    transition: transform 0.2s;
+}
+
+.dir-card:hover { transform: translateY(-4px); }
+
+.dir-cars    { background: linear-gradient(100deg, #1a1d22, #101820 60%, #0b0f14); }
+.dir-service { background: linear-gradient(135deg, #d7191f, #ec4c51); }
+
+.dir-text { position: relative; z-index: 2; max-width: 300px; }
+
+.dir-text h2 { margin-bottom: 12px; font-size: 32px; }
+
+.dir-text p {
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.55;
+    opacity: 0.9;
+}
+
+.dir-link {
+    display: inline-block;
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark);
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.dir-car-img {
+    position: absolute;
+    z-index: 1;
+    right: -120px;
+    bottom: -20px;
+    height: 62%;
+    width: auto;
+}
+
+.dir-icon {
+    position: absolute;
+    z-index: 1;
+    right: 30px;
+    bottom: 20px;
+    width: 170px;
+    height: 170px;
+    opacity: 0.25;
+}
+
+/* преимущества */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.why-card {
+    padding: 24px;
+    background: var(--soft);
+    border-radius: 16px;
+    transition: transform 0.2s;
+}
+
+.why-card:hover { transform: translateY(-3px); }
+
+.why-num {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--red);
+}
+
+.why-card h3 { margin-bottom: 8px; font-size: 16px; }
+.why-card p  { font-size: 14px; line-height: 1.5; color: #555555; }
+
+/* призыв связаться */
+.cta {
+    padding: 36px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #d7191f, #ec4c51);
+    border-radius: 16px;
+}
+
+.cta h2 { margin-bottom: 8px; font-size: 28px; }
+.cta p  { font-size: 15px; }
+
+.cta-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+
+.cta-phone { margin-right: 6px; font-size: 24px; font-weight: 800; color: #ffffff; }
+
+.contact-link {
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.contact-link:hover { transform: translateY(-2px); }
+
+
+/* ===================== 4. КАТАЛОГ ===================== */
+
+.catalog {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 60px 50px;
+}
+
+/* баннер каталога */
+.banner {
+    position: relative;
+    overflow: hidden;
+    height: 118px;
+    padding: 0 40px 0 90px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background: linear-gradient(100deg, #1a1d22 0%, #101820 60%, #0b0f14 100%);
+    border-radius: 6px;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 60px;
+    background: var(--red);
+    clip-path: polygon(0 0, 100% 0, 40% 100%, 0 100%);
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 45%;
+    background: radial-gradient(ellipse at 65% 70%, rgba(227, 41, 46, 0.35), transparent 65%);
+    pointer-events: none;
+}
+
+.banner-text { position: relative; z-index: 2; }
+.banner-text h1 { margin-bottom: 8px; font-size: 26px; }
+.banner-text p  { font-size: 13px; line-height: 1.5; color: #d5d8dc; }
+
+.banner-car {
+    position: absolute;
+    z-index: 1;
+    right: -110px;
+    bottom: -38px;
+    height: 170%;
+    width: auto;
+}
+
+/* фильтры */
+.filters {
+    margin-top: 22px;
+    padding: 16px 18px;
+    display: grid;
+    grid-template-columns: 1.1fr 1.1fr 1.5fr 1.1fr 1.4fr auto;
+    gap: 14px;
+    align-items: end;
+    background: var(--soft);
+    border-radius: 10px;
+}
+
+.f-field { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+
+.f-label { font-size: 12px; font-weight: 700; color: var(--text); }
+
+.f-field select {
+    height: 38px;
+    padding: 0 10px;
+    font-size: 12px;
+    color: var(--text);
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.f-field select:focus { outline: none; border-color: var(--red); }
+
+.price-values {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.f-price input[type="range"] {
+    width: 100%;
+    margin-top: 6px;
+    accent-color: var(--red);
+    cursor: pointer;
+}
+
+.apply-btn {
+    height: 38px;
+    padding: 0 26px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--red);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.apply-btn:hover { background: var(--red-dark); }
+
+/* счётчик и переключатель вида */
+.results-bar {
+    margin: 20px 0 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.found { font-size: 13px; color: var(--text); }
+
+.view-switch { display: flex; gap: 6px; }
+
+.view-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+    background: var(--soft);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.view-btn.active { color: #ffffff; background: var(--red); }
+
+/* карточки автомобилей */
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.car-card {
+    padding: 10px 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(16, 24, 32, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.car-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(16, 24, 32, 0.12);
+}
+
+.car-img {
+    position: relative;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7b828b;
+    background: #e6e8eb;
+    border-radius: 6px;
+}
+
+.car-img svg.car-ph { width: 52px; height: 52px; }
+
+.fav {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.fav:hover { transform: scale(1.15); }
+.fav svg   { fill: none; stroke: currentColor; stroke-width: 2; }
+.fav.on    { color: var(--red); }
+.fav.on svg { fill: var(--red); }
+
+.car-title { padding: 0 4px; font-size: 14px; font-weight: 800; }
+
+.car-specs {
+    padding: 0 4px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 6px;
+}
+
+.car-specs li { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #555555; }
+.car-specs svg { flex-shrink: 0; color: var(--muted); }
+
+.car-bottom {
+    margin-top: auto;
+    padding: 4px 4px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.car-price { font-size: 17px; font-weight: 800; }
+
+.car-btn {
+    padding: 8px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--red);
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.car-btn:hover { background: var(--red-dark); }
+
+.empty { padding: 50px 0; text-align: center; color: var(--muted); }
+
+/* режим «список» */
+.cars-grid.list { grid-template-columns: 1fr; }
+
+.cars-grid.list .car-card {
+    display: grid;
+    grid-template-columns: 220px 1fr auto;
+    align-items: center;
+    gap: 20px;
+}
+
+.cars-grid.list .car-img   { height: 110px; }
+.cars-grid.list .car-title { grid-column: 2; grid-row: 1; align-self: end; }
+
+.cars-grid.list .car-specs {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    grid-template-columns: repeat(4, auto);
+    justify-content: start;
+    gap: 8px 24px;
+}
+
+.cars-grid.list .car-bottom {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 14px;
+}
+
+
+/* ================= 5. ВНУТРЕННИЕ СТРАНИЦЫ ================= */
+
+.page { max-width: 1400px; margin: 0 auto; padding: 40px 60px 60px; }
+
+.page-head { margin-bottom: 28px; }
+.page-head h1 { margin-bottom: 8px; font-size: 32px; color: var(--text); }
+.page-head p  { font-size: 16px; }
+
+/* автосервис */
+.services-grid {
+    display: grid;
+    grid-template-columns: 2.1fr repeat(4, 1fr);
+    grid-auto-rows: 204px;
+    gap: 20px;
+}
+
+.service-card {
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    background: #f0f1f3;
+    border-radius: 20px;
+    transition: transform 0.2s;
+}
+
+.service-card:hover { transform: translateY(-4px); }
+
+.service-card img,
 .service-big img {
     position: absolute;
     left: 0;
     bottom: 0;
-
     width: 100%;
-    height: 58%;
+    height: 65%;
     object-fit: contain;
     object-position: center bottom;
 }
 
-
-/* =========================
-   АДАПТИВ
-   (порядок важен: от большего экрана к меньшему)
-========================= */
-
-/* Средние экраны */
-@media (max-width: 1400px) {
-
-    .header {
-        padding: 0 30px;
-    }
-
-    .messengers {
-        display: none;   /* прячем плашку мессенджеров */
-    }
-
-    .services {
-        padding: 0 30px;
-    }
+.service-big {
+    position: relative;
+    overflow: hidden;
+    grid-row: span 2;
+    padding: 32px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #d7191f, #ec4c51);
+    border-radius: 20px;
 }
 
-/* Планшеты */
+.service-big h3 { margin-bottom: 16px; font-size: 36px; line-height: 1.2; }
+.service-big p  { font-size: 16px; font-weight: 700; }
+.service-big img { height: 58%; }
+
+/* о компании */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.about-text p { margin-bottom: 16px; font-size: 16px; line-height: 1.7; }
+
+.page-btn-red {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 14px 26px;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--red);
+    border-radius: 10px;
+    transition: background 0.2s;
+}
+
+.page-btn-red:hover { background: var(--red-dark); }
+
+.about-cards { display: grid; gap: 14px; }
+
+.about-card {
+    padding: 20px;
+    background: var(--soft);
+    border-left: 4px solid var(--red);
+    border-radius: 14px;
+}
+
+.about-card h3 { margin-bottom: 6px; font-size: 16px; }
+.about-card p  { font-size: 14px; line-height: 1.5; color: #555555; }
+
+/* контакты */
+.contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.contact-card { padding: 26px; background: var(--soft); border-radius: 16px; }
+.contact-card h3 { margin-bottom: 14px; font-size: 15px; color: var(--muted); }
+.contact-card p  { font-size: 14px; line-height: 1.5; color: #555555; }
+
+.contact-big {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--dark);
+    transition: color 0.2s;
+}
+
+.contact-big:hover { color: var(--red); }
+
+.contact-links { display: flex; gap: 10px; margin-bottom: 12px; }
+
+
+/* ===================== 6. АДАПТИВ ===================== */
+
+@media (max-width: 1300px) {
+    .header, .wrap, .catalog, .page { padding-left: 30px; padding-right: 30px; }
+    .header { gap: 18px; }
+    .nav { gap: 16px; }
+    .work-time { display: none; }
+    .hero { padding-left: 90px; }
+    .cars-grid { grid-template-columns: repeat(3, 1fr); }
+    .filters { grid-template-columns: repeat(3, 1fr); }
+    .apply-btn { grid-column: 1 / -1; }
+}
+
 @media (max-width: 1000px) {
+    .nav, .contacts { display: none; }
+    .search { flex: 1; width: auto; }
 
-    .header {
-        grid-template-columns: auto 1fr;
-    }
+    .hero h1 { font-size: 24px; }
+    .hero-car { right: -220px; opacity: 0.45; }
+    .stats, .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .dir-grid { grid-template-columns: 1fr; }
+    .dir-car-img { right: -140px; opacity: 0.6; }
+    .cta { flex-direction: column; align-items: flex-start; }
 
-    .contacts {
-        display: none;   /* остаются логотип и поиск */
-    }
+    .banner { padding: 0 30px 0 80px; }
+    .banner-car { right: -140px; opacity: 0.6; }
+    .cars-grid { grid-template-columns: repeat(2, 1fr); }
+    .cars-grid.list .car-card { grid-template-columns: 160px 1fr; }
+    .cars-grid.list .car-bottom { grid-column: 1 / -1; grid-row: auto; flex-direction: row; padding: 0 4px; }
 
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .service-big {
-        grid-column: 1 / -1;   /* на всю ширину */
-        grid-row: auto;
-        height: 340px;
-    }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-big { grid-column: 1 / -1; grid-row: auto; height: 340px; }
+    .about-grid, .contact-cards { grid-template-columns: 1fr; }
 }
 
-/* Телефоны */
 @media (max-width: 600px) {
+    .header { height: 70px; padding: 0 16px; gap: 12px; }
+    .logo-text { display: none; }
+    .logo-icon { width: 44px; height: 44px; font-size: 16px; }
+    .logo-icon::after { left: 7px; bottom: 5px; width: 30px; }
 
-    .header {
-        height: 70px;
-        padding: 0 16px;
-        gap: 12px;
-    }
+    .wrap, .catalog, .page { padding-left: 16px; padding-right: 16px; }
+    .section-head h2 { font-size: 26px; }
 
-    .logo-text {
-        display: none;   /* остаётся только эмблема */
-    }
+    .hero { min-height: 0; padding: 26px 20px 26px 50px; }
+    .hero h1 { font-size: 21px; }
+    .hero-car, .dir-car-img, .banner-car { display: none; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .dir-card { min-height: 0; padding: 26px 22px; }
+    .dir-text h2 { font-size: 26px; }
+    .dir-icon { width: 110px; height: 110px; right: 14px; bottom: 14px; }
+    .cta { padding: 28px 22px; }
 
-    .logo-icon {
-        width: 44px;
-        height: 44px;
-        font-size: 16px;
-    }
+    .banner { height: auto; min-height: 110px; padding: 20px 20px 20px 50px; }
+    .banner-text h1 { font-size: 20px; }
+    .filters { grid-template-columns: 1fr 1fr; }
+    .f-price { grid-column: 1 / -1; }
+    .cars-grid { grid-template-columns: 1fr; }
+    .cars-grid.list .car-card { grid-template-columns: 1fr; }
+    .cars-grid.list .car-specs { grid-template-columns: 1fr 1fr; }
 
-    .logo-icon::after {
-        left: 7px;
-        width: 30px;
-        bottom: 5px;
-    }
-
-    .search {
-        height: 40px;
-    }
-
-    .services {
-        padding: 0 16px;
-    }
-
-    .services-head {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .service-big h3 {
-        font-size: 28px;
-    }
+    .page { padding-top: 24px; padding-bottom: 40px; }
 }
+
+  
