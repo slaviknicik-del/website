@@ -1,173 +1,278 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAR POINT — автомобили и автосервис</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>CarPoint — Автосалон и сервис</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <!-- ===== ШАПКА ===== -->
-    <header class="header">
-
-        <a href="index.html" class="logo">
-            <div class="logo-icon"><span>CP</span></div>
-            <div class="logo-text">
-                <span class="car">CAR</span>
-                <span class="point">POINT</span>
-            </div>
-        </a>
-
-        <nav class="nav" aria-label="Главное меню">
+  <!-- ШАПКА -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <span class="logo-icon">⚙</span>
+        CarPoint
+      </div>
+       <nav class="nav" aria-label="Главное меню">
             <a href="index.html" class="active">Главная</a>
             <a href="catalog.html">Каталог</a>
             <a href="services.html">Автосервис</a>
             <a href="about.html">О компании</a>
             <a href="contacts.html">Контакты</a>
         </nav>
+      <a href="#" class="btn btn-red">Записаться</a>
+    </div>
+  </header>
 
-        <form class="search" role="search">
-            <input type="search" class="search-input" placeholder="Поиск автомобилей..." aria-label="Поиск">
-            <button type="submit" class="search-btn" aria-label="Найти">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                    <circle cx="11" cy="11" r="7"></circle>
-                    <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
-                </svg>
-            </button>
-        </form>
+  <!-- ГЛАВНЫЙ БАННЕР -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="badge">Премиум автосалон</div>
+      <h1>Автомобили вашей мечты<br>и сервис высшего класса</h1>
+      <p>Продажа новых и проверенных автомобилей + профессиональный автосервис в одном месте</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn btn-red">Смотреть автомобили</a>
+        <a href="#" class="btn btn-outline">Записаться на сервис</a>
+      </div>
+    </div>
+  </section>
 
-        <div class="contacts">
-            <div class="phone-block">
-                <a href="tel:+37325078282" class="phone">+37325078282</a>
-                <span class="work-time">Ежедневно, без выходных 09:00-21:00</span>
+  <!-- ПРЕИМУЩЕСТВА -->
+  <section class="advantages">
+    <div class="container">
+      <div class="adv-item">
+        <div class="adv-icon">🚗</div>
+        <h3>Большой выбор</h3>
+        <p>Более 120 автомобилей в наличии</p>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">🔧</div>
+        <h3>Свой сервис</h3>
+        <p>Диагностика и ремонт любой сложности</p>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">🛡️</div>
+        <h3>Гарантия</h3>
+        <p>Официальная гарантия на все работы</p>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">⚡</div>
+        <h3>Быстро</h3>
+        <p>Большинство работ за 1 день</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- АВТОМОБИЛИ -->
+  <section class="cars">
+    <div class="container">
+      <div class="section-header">
+        <h2>Популярные автомобили</h2>
+        <p>Актуальные предложения этой недели</p>
+      </div>
+
+      <div class="cars-grid">
+        <div class="car-card">
+          <div class="car-img">
+            <img src="img/bmw.webp" alt="BMW">
+            <span class="tag">Новый</span>
+          </div>
+          <div class="car-info">
+            <h3>BMW 5 Series</h3>
+            <p>2024 · 2.0 бензин · Автомат</p>
+            <div class="car-bottom">
+              <span class="price">22,500$</span>
+              <a href="#" class="btn-small">Подробнее</a>
             </div>
-
-            <div class="messengers-icons">
-                <a href="https://wa.me/+37325078282" class="messenger-link whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 21l1.65-4.8A9 9 0 1 1 8 19.4L3 21z"></path>
-                        <path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2L9 8.5z"></path>
-                    </svg>
-                </a>
-                <a href="https://t.me/+37325078282" class="messenger-link telegram" target="_blank" rel="noopener" aria-label="Telegram">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M21.5 3.5 2.8 10.7c-.9.4-.9 1.1-.2 1.3l4.8 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.5-1.5z"></path>
-                    </svg>
-                </a>
-            </div>
+          </div>
         </div>
 
-    </header>
-
-
-    <main>
-
-        <!-- ===== 1. ГЛАВНЫЙ ЭКРАН ===== -->
-        <section class="wrap">
-            <div class="hero">
-                <div class="hero-text">
-                    <span class="hero-tag">Автомобили и автосервис</span>
-                    <h1>Купите проверенный автомобиль<br>и обслуживайте его у нас</h1>
-                    <p>Автомобили с гарантией и выгодными условиями покупки. Собственный автосервис — от диагностики до кузовного ремонта.</p>
-
-                    <div class="hero-btns">
-                        <a href="catalog.html" class="btn btn-red">Смотреть каталог</a>
-                        <a href="services.html" class="btn btn-ghost">Записаться в сервис</a>
-                    </div>
-                </div>
-
-                <img src="images/banner-car.png" alt="" class="hero-car">
+        <div class="car-card">
+          <div class="car-img">
+            <img src="img/2.img.png" alt="Mercedes">
+            <span class="tag">Хит</span>
+          </div>
+          <div class="car-info">
+            <h3>Mercedes-Benz E-Class</h3>
+            <p>2023 · 4.0 дизель · Автомат</p>
+            <div class="car-bottom">
+              <span class="price">57,500$</span>
+              <a href="#" class="btn-small">Подробнее</a>
             </div>
+          </div>
+        </div>
 
-            <!-- цифры -->
-            <div class="stats">
-                <div class="stat"><b>12+</b><span>автомобилей в наличии</span></div>
-                <div class="stat"><b>100%</b><span>проверка перед продажей</span></div>
-                <div class="stat"><b>8</b><span>направлений в автосервисе</span></div>
-                <div class="stat"><b>09–21</b><span>ежедневно, без выходных</span></div>
+        <div class="car-card">
+          <div class="car-img">
+            <img src="img/audi.jpg" alt="Audi">
+          </div>
+          <div class="car-info">
+            <h3>Audi RS7</h3>
+            <p>2024 · 4.0 бензин · Автомат</p>
+            <div class="car-bottom">
+              <span class="price">85,500$</span>
+              <a href="#" class="btn-small">Подробнее</a>
             </div>
-        </section>
+          </div>
+        </div>
 
-
-        <!-- ===== 2. ДВА НАПРАВЛЕНИЯ ===== -->
-        <section class="wrap section">
-            <div class="dir-grid">
-
-                <a href="catalog.html" class="dir-card dir-cars">
-                    <div class="dir-text">
-                        <h2>Автомобили</h2>
-                        <p>Проверенные автомобили с гарантией и выгодными условиями покупки.</p>
-                        <span class="dir-link">Перейти в каталог →</span>
-                    </div>
-                    <img src="" alt="" class="dir-car-img">
-                </a>
-
-                <a href="services.html" class="dir-card dir-service">
-                    <div class="dir-text">
-                        <h2>Автосервис</h2>
-                        <p>Полный спектр услуг по ремонту: от диагностики до кузовных работ.</p>
-                        <span class="dir-link">Смотреть услуги →</span>
-                    </div>
-                    <svg class="dir-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/>
-                    </svg>
-                </a>
-
+        <div class="car-card">
+          <div class="car-img">
+            <img src="img/toyota.webp" alt="Toyota">
+            <span class="tag">Выгодно</span>
+          </div>
+          <div class="car-info">
+            <h3>Toyota Camry</h3>
+            <p>2023 · 2.5 гибрид · Автомат</p>
+            <div class="car-bottom">
+              <span class="price">14,500$</span>
+              <a href="#" class="btn-small">Подробнее</a>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- СЕРВИС -->
+  <section class="service">
+    <div class="container">
+      <div class="service-content">
+        <div class="service-text">
+          <div class="label">АВТОСЕРВИС</div>
+          <h2>Профессиональный уход<br>за вашим автомобилем</h2>
+          <p>Мы выполняем все виды работ: от планового ТО до сложного ремонта двигателя и кузова. Используем только оригинальные запчасти и современное оборудование.</p>
+          <ul class="service-list">
+            <li>✓ Диагностика компьютером</li>
+            <li>✓ Замена масла и фильтров</li>
+            <li>✓ Ремонт подвески и тормозов</li>
+            <li>✓ Кузовной ремонт и покраска</li>
+            <li>✓ Шиномонтаж и балансировка</li>
+          </ul>
+          <a href="#" class="btn btn-red">Записаться на сервис</a>
+        </div>
+        <div class="service-image">
+          <img src="images/service.jpg" alt="Автосервис">
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- ===== 3. ПРЕИМУЩЕСТВА ===== -->
-        <section class="wrap section">
-            <div class="section-head">
-                <h2>Почему CAR POINT</h2>
-                <p>Покупка и обслуживание без лишних хлопот</p>
-            </div>
+  <!-- ПОЧЕМУ МЫ -->
+  <section class="why">
+    <div class="container">
+      <div class="section-header">
+        <h2>Почему выбирают нас</h2>
+        <p>Мы делаем всё, чтобы вы были довольны</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-num">01</div>
+          <h3>Честные цены</h3>
+          <p>Никаких скрытых платежей. Фиксируем стоимость работ до начала.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">02</div>
+          <h3>Опытные мастера</h3>
+          <p>Все специалисты с опытом от 7 лет и регулярным обучением.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">03</div>
+          <h3>Гарантия качества</h3>
+          <p>На все работы и запчасти даём официальную гарантию.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">04</div>
+          <h3>Комфорт клиента</h3>
+          <p>Зона ожидания, кофе, Wi-Fi и бесплатное такси при необходимости.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="why-grid">
-                <div class="why-card">
-                    <span class="why-num">01</span>
-                    <h3>Проверенные автомобили</h3>
-                    <p>Каждая машина проходит проверку перед продажей.</p>
-                </div>
-                <div class="why-card">
-                    <span class="why-num">02</span>
-                    <h3>Гарантия</h3>
-                    <p>Гарантия на автомобили и на работы в автосервисе.</p>
-                </div>
-                <div class="why-card">
-                    <span class="why-num">03</span>
-                    <h3>Всё в одном месте</h3>
-                    <p>Купили авто — обслуживайте и ремонтируйте там же.</p>
-                </div>
-                <div class="why-card">
-                    <span class="why-num">04</span>
-                    <h3>Выгодные условия</h3>
-                    <p>Понятные цены и удобные условия покупки.</p>
-                </div>
-            </div>
-        </section>
+  <!-- ОТЗЫВЫ -->
+  <section class="reviews">
+    <div class="container">
+      <div class="section-header">
+        <h2>Отзывы клиентов</h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>«Купил здесь BMW. Машина в идеале, менеджер всё подробно объяснил. Через месяц проходил ТО — сервис на высоте.»</p>
+          <div class="review-author">
+            <b>Алексей К.</b>
+            <span>Владелец BMW 5</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>«Делал сложный ремонт двигателя. Сделали быстро и качественно. Цену не подняли по ходу работ. Рекомендую.»</p>
+          <div class="review-author">
+            <b>Дмитрий С.</b>
+            <span>Владелец Audi A6</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>«Очень удобно — и купить машину, и обслуживать в одном месте. Всегда вежливые сотрудники и чистое помещение.»</p>
+          <div class="review-author">
+            <b>Елена М.</b>
+            <span>Владелица Toyota Camry</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ПРИЗЫВ -->
+  <section class="cta">
+    <div class="container">
+      <h2>Готовы выбрать автомобиль<br>или записаться на сервис?</h2>
+      <p>Оставьте заявку — мы перезвоним в течение 15 минут</p>
+      <a href="#" class="btn btn-red">Оставить заявку</a>
+    </div>
+  </section>
 
-        <!-- ===== 4. СВЯЗАТЬСЯ ===== -->
-        <section class="wrap section">
-            <div class="cta">
-                <div>
-                    <h2>Нужна консультация?</h2>
-                    <p>Позвоните или напишите — подберём автомобиль или запишем в сервис.</p>
-                </div>
-
-                <div class="cta-actions">
-                    <a href="tel:+37325078282" class="cta-phone">+37325078282</a>
-                    <a href="https://wa.me/+37325078282" target="_blank" rel="noopener" class="contact-link whatsapp">WhatsApp</a>
-                    <a href="https://t.me/+37325078282" target="_blank" rel="noopener" class="contact-link telegram">Telegram</a>
-                </div>
-            </div>
-        </section>
-
-    </main>
+  <!-- ФУТЕР -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <div class="logo">
+            <span class="logo-icon">⚙</span>
+            CarPoint
+          </div>
+          <p>Автосалон и профессиональный автосервис. Работаем с 2012 года.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Разделы</h4>
+          <a href="#">Автомобили</a>
+          <a href="#">Сервис</a>
+          <a href="#">Акции</a>
+          <a href="#">О компании</a>
+        </div>
+        <div class="footer-col">
+          <h4>Услуги</h4>
+          <a href="#">Продажа авто</a>
+          <a href="#">Диагностика</a>
+          <a href="#">Ремонт</a>
+          <a href="#">Шиномонтаж</a>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <a href="#">г. Москва, ул. Автозаводская, 15</a>
+          <a href="#">+7 (495) 123-45-67</a>
+          <a href="#">info@carpoint.ru</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CarPoint. Все права защищены.</span>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>

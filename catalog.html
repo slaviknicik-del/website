@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог автомобилей — CAR POINT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ШАПКА: блок выше, active у «Каталог» -->
+
+
+    <main class="catalog">
+
+        <!-- БАННЕР -->
+        <section class="banner">
+            <div class="banner-text">
+                <h1>Каталог автомобилей</h1>
+                <p>Широкий выбор проверенных автомобилей<br>с гарантией и выгодными условиями покупки.</p>
+            </div>
+            <img src="images/banner-car.png" alt="" class="banner-car">
+        </section>
+
+        <!-- СЧЁТЧИК И ПЕРЕКЛЮЧАТЕЛЬ ВИДА -->
+        <div class="results-bar">
+            <p class="found">Найдено: <b id="foundCount">0</b> <span id="foundWord">автомобилей</span></p>
+
+            <div class="view-switch">
+                <button type="button" class="view-btn active" data-view="grid" aria-label="Плитка">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+                </button>
+                <button type="button" class="view-btn" data-view="list" aria-label="Список">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="14" height="2" rx="1"/><rect x="1" y="7" width="14" height="2" rx="1"/><rect x="1" y="12" width="14" height="2" rx="1"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- КАРТОЧКИ (рисуются скриптом) -->
+        <div class="cars-grid" id="carsGrid"></div>
+        <p class="empty" id="emptyMsg" hidden>Ничего не найдено. Попробуйте другой запрос.</p>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
