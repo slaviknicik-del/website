@@ -513,3 +513,93 @@ img {
   text-align: center;
   color: #555;
 }
+/* Общие настройки */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+}
+
+/* Шапка */
+header {
+  background: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  color: #d62828;
+}
+
+nav a {
+  margin-left: 20px;
+  color: #222;
+  text-decoration: none;
+}
+
+/* Заголовок каталога */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+main h2 {
+  text-align: center;
+}
+
+/* Список машин */
+.cars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Одна карточка */
+.car {
+  background: white;
+  width: 240px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.car img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.car p {
+  color: #666;
+  font-size: 14px;
+}
+
+.price {
+  color: #d62828;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Кнопка */
+.button {
+  display: block;
+  background: #d62828;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* Подвал */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}

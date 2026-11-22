@@ -1,49 +1,73 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог автомобилей — CAR POINT</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Каталог — CarPoint</title>
+  <link rel="stylesheet" href="css/catalog.css">
 </head>
-
 <body>
 
-    <!-- ШАПКА: блок выше, active у «Каталог» -->
+  <!-- Шапка -->
+  <header>
+    <h1>CarPoint</h1>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+    </nav>
+  </header>
 
+  <!-- Каталог -->
+  <main>
+    <h2>Каталог автомобилей</h2>
 
-    <main class="catalog">
+    <div class="cars">
 
-        <!-- БАННЕР -->
-        <section class="banner">
-            <div class="banner-text">
-                <h1>Каталог автомобилей</h1>
-                <p>Широкий выбор проверенных автомобилей<br>с гарантией и выгодными условиями покупки.</p>
-            </div>
-            <img src="images/banner-car.png" alt="" class="banner-car">
-        </section>
+      <!-- Машина 1 -->
+      <div class="car">
+        <img src="img/bmw.webp" alt="BMW 5 Series">
+        <h3>BMW 5 Series</h3>
+        <p>2025 · 4.4 бензин · Автомат</p>
+        <p class="price">102 500 $</p>
+        <a href="#" class="button">Подробнее</a>
+      </div>
 
-        <!-- СЧЁТЧИК И ПЕРЕКЛЮЧАТЕЛЬ ВИДА -->
-        <div class="results-bar">
-            <p class="found">Найдено: <b id="foundCount">0</b> <span id="foundWord">автомобилей</span></p>
+      <!-- Машина 2 -->
+      <div class="car">
+        <img src="img/2.img.png" alt="Mercedes-Benz E-Class">
+        <h3>Mercedes-Benz E-Class</h3>
+        <p>2023 · 4.0 дизель · Автомат</p>
+        <p class="price">57 500 $</p>
+        <a href="#" class="button">Подробнее</a>
+      </div>
 
-            <div class="view-switch">
-                <button type="button" class="view-btn active" data-view="grid" aria-label="Плитка">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
-                </button>
-                <button type="button" class="view-btn" data-view="list" aria-label="Список">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="14" height="2" rx="1"/><rect x="1" y="7" width="14" height="2" rx="1"/><rect x="1" y="12" width="14" height="2" rx="1"/></svg>
-                </button>
-            </div>
-        </div>
+      <!-- Машина 3 -->
+      <div class="car">
+        <img src="img/audi.jpg" alt="Audi RS7">
+        <h3>Audi RS7</h3>
+        <p>2024 · 4.0 бензин · Автомат</p>
+        <p class="price">85 500 $</p>
+        <a href="#" class="button">Подробнее</a>
+      </div>
 
-        <!-- КАРТОЧКИ (рисуются скриптом) -->
-        <div class="cars-grid" id="carsGrid"></div>
-        <p class="empty" id="emptyMsg" hidden>Ничего не найдено. Попробуйте другой запрос.</p>
+      <!-- Машина 4 -->
+      <div class="car">
+        <img src="img/toyota.webp" alt="Toyota Camry">
+        <h3>Toyota Camry</h3>
+        <p>2023 · 2.5 гибрид · Автомат</p>
+        <p class="price">14 500 $</p>
+        <a href="#" class="button">Подробнее</a>
+      </div>
 
-    </main>
+      <!-- Чтобы добавить машину: скопируй один блок <div class="car"> ... </div> -->
 
-    <script src="script.js"></script>
+    </div>
+  </main>
+
+  <!-- Подвал -->
+  <footer>
+    <p>© 2026 CarPoint</p>
+  </footer>
 
 </body>
 </html>
