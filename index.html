@@ -9,264 +9,105 @@
 
   <!-- ШАПКА -->
   <header class="header">
-    <div class="container">
-      <div class="logo">
-        <span class="logo-icon">⚙</span>
-        CarPoint
-      </div>
-       <nav class="nav" aria-label="Главное меню">
-            <a href="index.html" class="active">Главная</a>
-            <a href="catalog.html">Каталог</a>
-            <a href="services.html">Автосервис</a>
-            <a href="about.html">О компании</a>
-            <a href="contacts.html">Контакты</a>
-        </nav>
-      <a href="#" class="btn btn-red">Записаться</a>
+    <div class="container header-inner">
+      <div class="logo">CarPoint</div>
+
+      <nav class="menu">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="services.html">Автосервис</a>
+        <a href="about.html">О компании</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+
+      <a href="#" class="button">Записаться</a>
     </div>
   </header>
 
-  <!-- ГЛАВНЫЙ БАННЕР -->
+  <!-- БАННЕР -->
   <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <div class="badge">Премиум автосалон</div>
-      <h1>Автомобили вашей мечты<br>и сервис высшего класса</h1>
-      <p>Продажа новых и проверенных автомобилей + профессиональный автосервис в одном месте</p>
-      <div class="hero-buttons">
-        <a href="#" class="btn btn-red">Смотреть автомобили</a>
-        <a href="#" class="btn btn-outline">Записаться на сервис</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ПРЕИМУЩЕСТВА -->
-  <section class="advantages">
     <div class="container">
-      <div class="adv-item">
-        <div class="adv-icon">🚗</div>
-        <h3>Большой выбор</h3>
-      </div>
-      <div class="adv-item">
-        <div class="adv-icon">🔧</div>
-        <h3>Свой сервис</h3>
-      </div>
-      <div class="adv-item">
-        <div class="adv-icon">🛡️</div>
-        <h3>Гарантия</h3>
-      </div>
-      <div class="adv-item">
-        <div class="adv-icon">⚡</div>
-        <h3>Быстро</h3>
-      </div>
+      <h1>Автомобили вашей мечты и сервис высшего класса</h1>
+      <p>Продажа новых и проверенных автомобилей и профессиональный автосервис в одном месте</p>
+      <a href="#" class="button">Смотреть автомобили</a>
     </div>
   </section>
 
   <!-- АВТОМОБИЛИ -->
   <section class="cars">
     <div class="container">
-      <div class="section-header">
-        <h2>Популярные автомобили</h2>
-      </div>
+      <h2>Популярные автомобили</h2>
 
-      <div class="cars-grid">
-        <div class="car-card">
-          <div class="car-img">
-            <img src="img/bmw.webp" alt="BMW">
-            <span class="tag">Новый</span>
-          </div>
-          <div class="car-info">
-            <h3>BMW 5 Series</h3>
-            <p>2025 · 4.4бензин · Автомат</p>
-            <div class="car-bottom">
-              <span class="price">102,500$</span>
-              <a href="#" class="btn-small">Подробнее</a>
-            </div>
-          </div>
+      <div class="cars-list">
+
+        <div class="car">
+          <img src="img/bmw.webp" alt="BMW">
+          <h3>BMW 5 Series</h3>
+          <p>2025 · 4.4 бензин · Автомат</p>
+          <p class="price">102,500$</p>
+          <a href="#" class="button">Подробнее</a>
         </div>
 
-        <div class="car-card">
-          <div class="car-img">
-            <img src="img/2.img.png" alt="Mercedes">
-            <span class="tag">Хит</span>
-          </div>
-          <div class="car-info">
-            <h3>Mercedes-Benz E-Class</h3>
-            <p>2023 · 4.0 дизель · Автомат</p>
-            <div class="car-bottom">
-              <span class="price">57,500$</span>
-              <a href="#" class="btn-small">Подробнее</a>
-            </div>
-          </div>
+        <div class="car">
+          <img src="img/2.img.png" alt="Mercedes">
+          <h3>Mercedes-Benz E-Class</h3>
+          <p>2023 · 4.0 дизель · Автомат</p>
+          <p class="price">57,500$</p>
+          <a href="#" class="button">Подробнее</a>
         </div>
 
-        <div class="car-card">
-          <div class="car-img">
-            <img src="img/audi.jpg" alt="Audi">
-          </div>
-          <div class="car-info">
-            <h3>Audi RS7</h3>
-            <p>2024 · 4.0 бензин · Автомат</p>
-            <div class="car-bottom">
-              <span class="price">85,500$</span>
-              <a href="#" class="btn-small">Подробнее</a>
-            </div>
-          </div>
+        <div class="car">
+          <img src="img/audi.jpg" alt="Audi">
+          <h3>Audi RS7</h3>
+          <p>2024 · 4.0 бензин · Автомат</p>
+          <p class="price">85,500$</p>
+          <a href="#" class="button">Подробнее</a>
         </div>
 
-        <div class="car-card">
-          <div class="car-img">
-            <img src="img/toyota.webp" alt="Toyota">
-            <span class="tag">Выгодно</span>
-          </div>
-          <div class="car-info">
-            <h3>Toyota Camry</h3>
-            <p>2023 · 2.5 гибрид · Автомат</p>
-            <div class="car-bottom">
-              <span class="price">14,500$</span>
-              <a href="#" class="btn-small">Подробнее</a>
-            </div>
-          </div>
+        <div class="car">
+          <img src="img/toyota.webp" alt="Toyota">
+          <h3>Toyota Camry</h3>
+          <p>2023 · 2.5 гибрид · Автомат</p>
+          <p class="price">14,500$</p>
+          <a href="#" class="button">Подробнее</a>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- СЕРВИС -->
   <section class="service">
-    <div class="container">
-      <div class="service-content">
-        <div class="service-text">
-          <div class="label">АВТОСЕРВИС</div>
-          <h2>Профессиональный уход<br>за вашим автомобилем</h2>
-          <p>Мы выполняем все виды работ: от планового ТО до сложного ремонта двигателя и кузова. Используем только оригинальные запчасти и современное оборудование.</p>
-          <ul class="service-list">
-            <li>✓ Диагностика компьютером</li>
-            <li>✓ Замена масла и фильтров</li>
-            <li>✓ Ремонт подвески и тормозов</li>
-            <li>✓ Кузовной ремонт и покраска</li>
-            <li>✓ Шиномонтаж и балансировка</li>
-          </ul>
-          <a href="#" class="btn btn-red">Записаться на сервис</a>
-        </div>
-        <div class="service-image">
-          <img src="img/service.jpg" alt="Автосервис">
-        </div>
+    <div class="container service-inner">
+
+      <!-- Левая часть: текст -->
+      <div class="service-text">
+        <p class="label">АВТОСЕРВИС</p>
+        <h2>Профессиональный уход за вашим автомобилем</h2>
+        <p class="service-desc">Мы выполняем все виды работ: от планового ТО до ремонта двигателя и кузова. Используем только оригинальные запчасти и современное оборудование.</p>
+        <ul>
+          <li>Диагностика компьютером</li>
+          <li>Замена масла и фильтров</li>
+          <li>Ремонт подвески и тормозов</li>
+          <li>Кузовной ремонт и покраска</li>
+          <li>Шиномонтаж и балансировка</li>
+        </ul>
+        <a href="#" class="button">Записаться на сервис</a>
       </div>
+
+      <!-- Правая часть: фото (замените img/service.jpg на своё) -->
+      <div class="service-photo">
+        <img src="img/service.jpg" alt="Автосервис">
+      </div>
+
     </div>
   </section>
 
-  <!-- ПОЧЕМУ МЫ -->
-  <section class="why">
-    <div class="container">
-      <div class="section-header">
-        <h2>Почему выбирают нас</h2>
-        <p>Мы делаем всё, чтобы вы были довольны</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-num">01</div>
-          <h3>Честные цены</h3>
-          <p>Никаких скрытых платежей. Фиксируем стоимость работ до начала.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-num">02</div>
-          <h3>Опытные мастера</h3>
-          <p>Все специалисты с опытом от 7 лет и регулярным обучением.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-num">03</div>
-          <h3>Гарантия качества</h3>
-          <p>На все работы и запчасти даём официальную гарантию.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-num">04</div>
-          <h3>Комфорт клиента</h3>
-          <p>Зона ожидания, кофе, Wi-Fi и бесплатное такси при необходимости.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ОТЗЫВЫ -->
-  <section class="reviews">
-    <div class="container">
-      <div class="section-header">
-        <h2>Отзывы клиентов</h2>
-      </div>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>«Купил здесь BMW. Машина в идеале, менеджер всё подробно объяснил. Через месяц проходил ТО — сервис на высоте.»</p>
-          <div class="review-author">
-            <b>Алексей К.</b>
-            <span>Владелец BMW 5</span>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>«Делал сложный ремонт двигателя. Сделали быстро и качественно. Цену не подняли по ходу работ. Рекомендую.»</p>
-          <div class="review-author">
-            <b>Дмитрий С.</b>
-            <span>Владелец Audi A6</span>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>«Очень удобно — и купить машину, и обслуживать в одном месте. Всегда вежливые сотрудники и чистое помещение.»</p>
-          <div class="review-author">
-            <b>Елена М.</b>
-            <span>Владелица Toyota Camry</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ПРИЗЫВ -->
-  <section class="cta">
-    <div class="container">
-      <h2>Готовы выбрать автомобиль<br>или записаться на сервис?</h2>
-      <p>Оставьте заявку — мы перезвоним в течение 15 минут</p>
-      <a href="#" class="btn btn-red">Оставить заявку</a>
-    </div>
-  </section>
-
-  <!-- ФУТЕР -->
+  <!-- ПОДВАЛ -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-about">
-          <div class="logo">
-            <span class="logo-icon">⚙</span>
-            CarPoint
-          </div>
-          <p>Автосалон и профессиональный автосервис. Работаем с 2012 года.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Разделы</h4>
-          <a href="#">Автомобили</a>
-          <a href="#">Сервис</a>
-          <a href="#">Акции</a>
-          <a href="#">О компании</a>
-        </div>
-        <div class="footer-col">
-          <h4>Услуги</h4>
-          <a href="#">Продажа авто</a>
-          <a href="#">Диагностика</a>
-          <a href="#">Ремонт</a>
-          <a href="#">Шиномонтаж</a>
-        </div>
-        <div class="footer-col">
-          <h4>Контакты</h4>
-          <a href="#">г.Бельцы, ул.Штефан Чел Маре, 15</a>
-          <a href="#">+373 49512345</a>
-          <a href="#">info@carpoint.ru</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 CarPoint. Все права защищены.</span>
-      </div>
-    </div>
+    <p>г. Бельцы, ул. Штефан чел Маре, 15</p>
+    <p>+373 49512345 · info@carpoint.ru</p>
+    <p>© 2026 CarPoint. Все права защищены.</p>
   </footer>
 
 </body>

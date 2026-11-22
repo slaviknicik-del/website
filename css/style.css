@@ -1,3 +1,4 @@
+/* ===== Общие настройки ===== */
 * {
   margin: 0;
   padding: 0;
@@ -5,579 +6,125 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #1a1a1a;
-  background: #fff;
-  line-height: 1.55;
-  font-weight: 500;
+  font-family: Arial, sans-serif;
+  color: #222;
+  line-height: 1.5;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: #222;
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
   display: block;
 }
 
+/* Контейнер: ограничивает ширину и ставит по центру */
 .container {
-  max-width: 1200px;
+  width: 1100px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* КНОПКИ */
-.btn {
-  display: inline-block;
-  padding: 14px 32px;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 15px;
-}
-
-.btn-red {
-  background: #d62828;
-  color: #fff;
-}
-
-.btn-outline {
-  border: 2px solid #d62828;
-  color: #d62828;
-  margin-left: 12px;
-  background: transparent;
-}
-
-.btn-small {
-  background: #d62828;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-/* ШАПКА */
-.header {
-  background: #fff;
-  padding: 18px 0;
-  border-bottom: 1px solid #eee;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 26px;
-  font-weight: 800;
-  color: #1a1a1a;
-}
-
-.logo-icon {
-  background: #d62828;
-  color: #fff;
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
-
-.nav {
-  display: flex;
-  gap: 28px;
-}
-
-.nav a {
-  color: #1a1a1a;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-/* ГЕРОЙ */
-.hero {
-  position: relative;
-  background: #f7f7f7 url('images/hero-car.jpg') center/cover no-repeat;
-  min-height: 560px;
-  display: flex;
-  align-items: center;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.78);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 650px;
-}
-
-.badge {
-  display: inline-block;
-  background: #d62828;
-  color: #fff;
-  padding: 7px 18px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 22px;
-}
-
-.hero h1 {
-  font-size: 46px;
-  line-height: 1.15;
-  margin-bottom: 18px;
-  color: #1a1a1a;
-  font-weight: 800;
-}
-
-.hero p {
-  font-size: 17px;
-  color: #333;
-  margin-bottom: 32px;
-  max-width: 520px;
-  font-weight: 500;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 12px;
-}
-
-/* ПРЕИМУЩЕСТВА */
-.advantages {
-  background: #fff;
-  padding: 55px 0;
-  border-bottom: 1px solid #eee;
-}
-
-.advantages .container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.adv-item {
+h2 {
   text-align: center;
-  flex: 1;
-}
-
-.adv-icon {
-  font-size: 34px;
-  margin-bottom: 14px;
-}
-
-.adv-item h3 {
-  font-size: 17px;
-  margin-bottom: 6px;
-  color: #1a1a1a;
-  font-weight: 700;
-}
-
-.adv-item p {
-  font-size: 14px;
-  color: #555;
-}
-
-/* АВТОМОБИЛИ */
-.cars {
-  padding: 80px 0;
-  background: #fff;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 45px;
-}
-
-.section-header h2 {
-  font-size: 34px;
-  margin-bottom: 8px;
-  color: #1a1a1a;
-  font-weight: 800;
-}
-
-.section-header p {
-  color: #555;
-  font-size: 16px;
-}
-
-.cars-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-}
-
-.car-card {
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid #e5e5e5;
-}
-
-.car-img {
-  height: 180px;
-  background: #f0f0f0;
-  position: relative;
-  overflow: hidden;
-}
-
-.car-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.tag {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: #d62828;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 4px 11px;
-  border-radius: 6px;
-}
-
-.car-info {
-  padding: 18px;
-}
-
-.car-info h3 {
-  font-size: 17px;
-  margin-bottom: 4px;
-  color: #1a1a1a;
-  font-weight: 700;
-}
-
-.car-info p {
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 14px;
-}
-
-.car-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.price {
-  font-size: 18px;
-  font-weight: 800;
-  color: #d62828;
-}
-
-/* СЕРВИС */
-.service {
-  background: #fff;
-  color: #1a1a1a;
-  padding: 80px 0;
-  border-top: 1px solid #eee;
-}
-
-.service-content {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-}
-
-.service-text {
-  flex: 1;
-}
-
-.label {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: #d62828;
-  margin-bottom: 14px;
-}
-
-.service-text h2 {
-  font-size: 34px;
-  line-height: 1.2;
-  margin-bottom: 18px;
-  color: #1a1a1a;
-  font-weight: 800;
-}
-
-.service-text p {
-  color: #444;
-  margin-bottom: 24px;
-  font-size: 16px;
-}
-
-.service-list {
-  list-style: none;
+  font-size: 32px;
   margin-bottom: 30px;
 }
 
-.service-list li {
-  margin-bottom: 10px;
-  font-size: 15px;
-  color: #333;
-  font-weight: 500;
-}
-
-.service-image {
-  flex: 1;
-  border-radius: 16px;
-  overflow: hidden;
-  height: 400px;
-  border: 1px solid #e5e5e5;
-}
-
-.service-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ПОЧЕМУ МЫ */
-.why {
-  padding: 80px 0;
-  background: #f7f7f7;
-}
-
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.why-card {
-  background: #fff;
-  padding: 28px;
-  border-radius: 16px;
-  border: 1px solid #e5e5e5;
-}
-
-.why-num {
-  font-size: 28px;
-  font-weight: 800;
-  color: #d62828;
-  margin-bottom: 12px;
-}
-
-.why-card h3 {
-  font-size: 17px;
-  margin-bottom: 8px;
-  color: #1a1a1a;
-  font-weight: 700;
-}
-
-.why-card p {
-  font-size: 14px;
-  color: #555;
-}
-
-/* ОТЗЫВЫ */
-.reviews {
-  padding: 80px 0;
-  background: #fff;
-}
-
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.review-card {
-  background: #f7f7f7;
-  padding: 28px;
-  border-radius: 16px;
-  border: 1px solid #e5e5e5;
-}
-
-.stars {
-  color: #d62828;
-  font-size: 18px;
-  margin-bottom: 14px;
-}
-
-.review-card p {
-  font-size: 15px;
-  color: #333;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.review-author b {
-  display: block;
-  font-size: 15px;
-  color: #1a1a1a;
-  font-weight: 700;
-}
-
-.review-author span {
-  font-size: 13px;
-  color: #555;
-}
-
-/* ПРИЗЫВ */
-.cta {
+/* ===== Кнопка ===== */
+.button {
+  display: inline-block;
   background: #d62828;
-  color: #fff;
-  text-align: center;
-  padding: 70px 20px;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
-.cta h2 {
-  font-size: 32px;
-  margin-bottom: 12px;
-  line-height: 1.25;
-  color: #fff;
-  font-weight: 800;
+/* ===== Шапка ===== */
+.header {
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
 }
 
-.cta p {
-  font-size: 17px;
-  margin-bottom: 28px;
-  color: #fff;
+.header-inner {
+  display: flex;                  /* элементы в ряд */
+  align-items: center;            /* по центру по вертикали */
+  justify-content: space-between; /* равномерно по ширине */
 }
 
-.cta .btn-red {
-  background: #fff;
+.logo {
+  font-size: 26px;
+  font-weight: bold;
   color: #d62828;
 }
 
-/* ФУТЕР */
-.footer {
-  background: #fff;
-  color: #333;
-  padding: 60px 0 25px;
-  border-top: 1px solid #eee;
+.menu a {
+  margin-right: 20px;
 }
 
-.footer-top {
-  display: flex;
-  gap: 40px;
-  margin-bottom: 40px;
+.menu {
+  margin-right: 30px;   /* отступ между меню и кнопкой "Записаться" */
 }
 
-.footer-about {
-  width: 30%;
+/* ===== Баннер ===== */
+.hero {
+  background: white;               /* белый фон */
+  padding: 110px 0;
+  text-align: center;              /* весь текст по центру */
+  border-bottom: 1px solid #eee;   /* тонкая линия снизу */
 }
 
-.footer-about .logo {
-  margin-bottom: 14px;
-  color: #1a1a1a;
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  max-width: 800px;                /* ограничиваем ширину заголовка */
+  margin: 0 auto 20px;             /* auto по бокам = по центру */
 }
 
-.footer-about p {
-  font-size: 14px;
-  line-height: 1.6;
+.hero p {
+  font-size: 18px;
   color: #555;
+  max-width: 600px;
+  margin: 0 auto 35px;
 }
 
-.footer-col {
-  width: 20%;
+.hero .button {
+  padding: 16px 40px;              /* кнопка побольше */
+  font-size: 16px;
 }
 
-.footer-col h4 {
-  color: #1a1a1a;
-  font-size: 15px;
-  margin-bottom: 16px;
-  font-weight: 700;
-}
-
-.footer-col a {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 10px;
-  color: #555;
-}
-
-.footer-bottom {
-  border-top: 1px solid #eee;
-  padding-top: 20px;
-  font-size: 13px;
-  text-align: center;
-  color: #555;
-}
-/* Общие настройки */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  color: #222;
-}
-
-/* Шапка */
-header {
-  background: white;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header h1 {
-  margin: 0;
-  color: #d62828;
-}
-
-nav a {
-  margin-left: 20px;
-  color: #222;
-  text-decoration: none;
-}
-
-/* Заголовок каталога */
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 30px 20px;
-}
-
-main h2 {
-  text-align: center;
-}
-
-/* Список машин */
+/* ===== Автомобили ===== */
 .cars {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  padding: 60px 0;
 }
 
-/* Одна карточка */
+.cars-list {
+  display: flex;
+  gap: 20px;
+}
+
 .car {
-  background: white;
-  width: 240px;
+  width: 25%;               /* 4 карточки = 100% */
+  border: 1px solid #ddd;
   padding: 15px;
   border-radius: 10px;
 }
 
 .car img {
-  width: 100%;
   height: 160px;
-  object-fit: cover;
+  object-fit: cover;        /* картинка не растягивается */
   border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .car p {
   color: #666;
-  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .price {
@@ -586,20 +133,334 @@ main h2 {
   font-weight: bold;
 }
 
-/* Кнопка */
-.button {
-  display: block;
-  background: #d62828;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  border-radius: 6px;
-  text-decoration: none;
+/* ===== Сервис ===== */
+.service {
+  padding: 70px 0;
+  background: white;               /* белый фон */
+  border-top: 1px solid #eee;
 }
 
-/* Подвал */
-footer {
+.service-inner {
+  display: flex;                   /* текст и фото в ряд */
+  align-items: center;             /* по центру по вертикали */
+  gap: 50px;                       /* расстояние между текстом и фото */
+}
+
+.service-text {
+  width: 50%;                      /* левая половина */
+}
+
+/* Маленькая красная надпись над заголовком */
+.label {
+  color: #d62828;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;             /* расстояние между буквами */
+  margin-bottom: 12px;
+}
+
+.service-text h2 {
+  text-align: left;
+  font-size: 38px;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.service-desc {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.service-text ul {
+  list-style: none;
+  margin-bottom: 35px;
+}
+
+/* Каждый пункт списка */
+.service-text li {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+/* Красная галочка перед пунктом (рисуется через CSS) */
+.service-text li::before {
+  content: "✓";
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
   text-align: center;
-  padding: 20px;
+  background: #d62828;
+  color: white;
+  border-radius: 50%;              /* круг */
+  font-size: 14px;
+  margin-right: 12px;
+}
+
+.service-photo {
+  width: 50%;                      /* правая половина */
+}
+
+.service-photo img {
+  height: 380px;
+  object-fit: cover;               /* фото не растягивается */
+  border-radius: 12px;
+}
+
+/* ===== Подвал ===== */
+.footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+}
+ 
+/* дизайн каталога */
+/* ===== Общие настройки ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #222;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/* Контейнер: ограничивает ширину и ставит по центру */
+.container {
+  width: 1100px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+/* ===== Кнопка ===== */
+.button {
+  display: inline-block;
+  background: #d62828;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* ===== Шапка ===== */
+.header {
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-inner {
+  display: flex;                  /* элементы в ряд */
+  align-items: center;            /* по центру по вертикали */
+  justify-content: space-between; /* равномерно по ширине */
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #d62828;
+}
+
+.menu a {
+  margin-right: 20px;
+}
+
+.menu {
+  margin-right: 30px;   /* отступ между меню и кнопкой "Записаться" */
+}
+
+/* ===== Баннер ===== */
+.hero {
+  background: white;               /* белый фон */
+  padding: 110px 0;
+  text-align: center;              /* весь текст по центру */
+  border-bottom: 1px solid #eee;   /* тонкая линия снизу */
+}
+
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  max-width: 800px;                /* ограничиваем ширину заголовка */
+  margin: 0 auto 20px;             /* auto по бокам = по центру */
+}
+
+.hero p {
+  font-size: 18px;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 35px;
+}
+
+.hero .button {
+  padding: 16px 40px;              /* кнопка побольше */
+  font-size: 16px;
+}
+
+/* ===== Автомобили ===== */
+.cars {
+  padding: 60px 0;
+}
+
+.cars-list {
+  display: flex;
+  gap: 20px;
+}
+
+.car {
+  width: 25%;               /* 4 карточки = 100% */
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.car img {
+  height: 160px;
+  object-fit: cover;        /* картинка не растягивается */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.car p {
   color: #666;
+  margin-bottom: 10px;
+}
+
+.car .price {
+  color: #d62828;      /* красный цвет цены */
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* ===== Сервис ===== */
+.service {
+  padding: 70px 0;
+  background: white;               /* белый фон */
+  border-top: 1px solid #eee;
+}
+
+.service-inner {
+  display: flex;                   /* текст и фото в ряд */
+  align-items: center;             /* по центру по вертикали */
+  gap: 50px;                       /* расстояние между текстом и фото */
+}
+
+.service-text {
+  width: 50%;                      /* левая половина */
+}
+
+/* Маленькая красная надпись над заголовком */
+.label {
+  color: #d62828;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;             /* расстояние между буквами */
+  margin-bottom: 12px;
+}
+
+.service-text h2 {
+  text-align: left;
+  font-size: 38px;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.service-desc {
+  font-size: 17px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.service-text ul {
+  list-style: none;
+  margin-bottom: 35px;
+}
+
+/* Каждый пункт списка */
+.service-text li {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+/* Красная галочка перед пунктом (рисуется через CSS) */
+.service-text li::before {
+  content: "✓";
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  background: #d62828;
+  color: white;
+  border-radius: 50%;              /* круг */
+  font-size: 14px;
+  margin-right: 12px;
+}
+
+.service-photo {
+  width: 50%;                      /* правая половина */
+}
+
+.service-photo img {
+  height: 380px;
+  object-fit: cover;               /* фото не растягивается */
+  border-radius: 12px;
+}
+
+/* ===== Каталог ===== */
+.page-banner {
+  background: white;
+  padding: 70px 0;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.page-banner h1 {
+  font-size: 44px;
+  margin-bottom: 15px;
+}
+
+.page-banner p {
+  color: #555;
+  font-size: 18px;
+}
+
+.page-banner .label {
+  color: #d62828;       /* красная надпись сверху */
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+/* ===== Подвал ===== */
+.footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
 }
